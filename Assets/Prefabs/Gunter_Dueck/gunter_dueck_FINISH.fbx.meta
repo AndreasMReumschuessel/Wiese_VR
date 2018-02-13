@@ -96,6 +96,7 @@ ModelImporter:
     2100000: No Name
     4300000: Dueck
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Dueck
   externalObjects: {}
   materials:
@@ -107,7 +108,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 0
+    optimizeGameObjects: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -121,7 +122,8 @@ ModelImporter:
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
+    extraExposedTransformPaths:
+    - Armature/Belly/Chest/Upper Arm.R/Lower Arm.R/Hand.R
     extraUserProperties: []
     clipAnimations: []
     isReadable: 1
@@ -168,10 +170,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
