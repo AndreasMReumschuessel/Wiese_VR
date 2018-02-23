@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class AvatarController : MonoBehaviour {
     #region Public Variables
-    public Transform cameraRigTransform;
-    public Transform headTransform;
     public Transform cameraAnchorPoint;
 
-    public float rotationBorder = 60f;
+    public float rotationBorder = 50f;
     #endregion
 
     #region Private Variables
+    private Transform cameraRigTransform;
+    private Transform headTransform;
     private Transform avatarTransform;
     private float avatarRotationY;
     #endregion
@@ -21,6 +22,8 @@ public class AvatarController : MonoBehaviour {
     {
         avatarTransform = this.gameObject.transform;
         avatarRotationY = avatarTransform.rotation.eulerAngles.y;
+        cameraRigTransform = VRTK_DeviceFinder.PlayAreaTransform();
+        headTransform = GameObject.FindGameObjectWithTag("CameraAlias").transform;
     }
 
     // Use this for initialization

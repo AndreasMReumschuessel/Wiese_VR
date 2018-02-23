@@ -9,5 +9,20 @@ EditorBuildSettings:
     path: Assets/_Scenes/Launcher.unity
     guid: 4aab640b8bfe7d04698e44a36c96d3fd
   - enabled: 1
+    path: Assets/_Scenes/Room_AvatarPick.unity
+    guid: 718e3caccb09eb048a8e6dcc41f5d168
+  - enabled: 1
     path: Assets/_Scenes/Room_Table.unity
     guid: c8a18647910ed664f9d0512fa21960d7
+  - enabled: 1
+    path: Assets/_Scenes/Room_Sphere.unity
+    guid: 5d39bb136d40d1447bdf7e51f6d56f6e
+  - enabled: 1
+    path: Assets/_Scenes/Room_Stage.unity
+    guid: a7124ed3b402173419c2a402a41c867c
+  - enabled: 1
+    path: Assets/_Scenes/Room_Tree.unity
+    guid: 31583c23ff4c6994ba38a69c5557b50e
+  - enabled: 1
+    path: Assets/_Scenes/Demo_Gunter.unity
+    guid: 00632ac8cc34dde4598622994fb9e130

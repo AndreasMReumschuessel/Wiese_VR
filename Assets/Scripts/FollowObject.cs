@@ -5,9 +5,9 @@ using UnityEngine;
 public class FollowObject : MonoBehaviour {
     protected Animator animator;
 
-    public Transform headLookObject;
-    public Transform leftHandObject;
-    public Transform rightHandObject;
+    private Transform headLookObject;
+    private Transform leftHandObject;
+    private Transform rightHandObject;
 
     private Dictionary<Transform, AvatarIKGoal> bodyDict;
 
@@ -20,20 +20,27 @@ public class FollowObject : MonoBehaviour {
         }
     }
 
-    private void TrackBodyPart(Transform bodyPart)
+    private void TrackBodyPart(Transform bodyPart, float rotation)
     {
         AvatarIKGoal goal;
         if (bodyPart && bodyDict.TryGetValue(bodyPart, out goal))
         {
+            // Rotate the hand to get a more realistic feeling
+            Quaternion finalRotation = Quaternion.Euler(bodyPart.rotation.eulerAngles + new Vector3(0, 0, rotation));
+
             animator.SetIKPositionWeight(goal, 1);
             animator.SetIKRotationWeight(goal, 1);
             animator.SetIKPosition(goal, bodyPart.position);
-            animator.SetIKRotation(goal, bodyPart.rotation);
+            animator.SetIKRotation(goal, finalRotation);
         }
     }
 
     private void Awake()
     {
+        headLookObject = GameObject.FindGameObjectWithTag("LookGoal").transform;
+        leftHandObject = GameObject.FindGameObjectWithTag("LeftController").transform;
+        rightHandObject = GameObject.FindGameObjectWithTag("RightController").transform;
+
         bodyDict = new Dictionary<Transform, AvatarIKGoal>();
         bodyDict.Add(leftHandObject, AvatarIKGoal.LeftHand);
         bodyDict.Add(rightHandObject, AvatarIKGoal.RightHand);
@@ -58,7 +65,7 @@ public class FollowObject : MonoBehaviour {
 
         TrackHead();
 
-        TrackBodyPart(leftHandObject);
-        TrackBodyPart(rightHandObject);
+        TrackBodyPart(leftHandObject, 90);
+        TrackBodyPart(rightHandObject, -90);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Vr.Wiese
 {
@@ -76,7 +77,8 @@ namespace Vr.Wiese
         /// </summary>
         public void Connect()
         {
-            isConnecting = true;
+            SceneManager.LoadScene("Room_AvatarPick");
+            /*isConnecting = true;
 
             progressLabel.SetActive(true);
             controlPanel.SetActive(false);
@@ -91,7 +93,7 @@ namespace Vr.Wiese
             {
                 // #Critical, we must first and foremost connect to Photon Online Server.
                 PhotonNetwork.ConnectUsingSettings(_gameVersion);
-            }
+            }*/
         }
         #endregion
 
